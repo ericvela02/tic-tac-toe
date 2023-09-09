@@ -6,37 +6,227 @@
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  height: 30vmin;
 }
 
-@keyframes logo-spin {
+.heading {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 2rem;
+}
+
+.heading::after {
+  content: "";
+  display: block;
+  width: 80vw;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.25);
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.start-button {
+  height: 5rem;
+  width: 20rem;
+  font-size: 2rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  background: linear-gradient(45deg, #cf6d6d 0%, #954141 100%);
+  border: none;
+  text-decoration: none;
+  border-radius: 15px;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.start-button:hover {
+  box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.1);
+}
+
+.start-button:active {
+  box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.1);
+  transform: scale(0.98);
+}
+
+.landing-page-button {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  text-decoration: none;
+  color: white;
+}
+
+.landing-page-button img {
+  height: 4rem;
+  margin: 1.5rem;
+}
+
+.landing-page-button p {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.game-board-background {
+  border-radius: 100px;
+  width: 30rem;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 6rem;
+  position: relative;
+}
+
+.game-board-background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.game-board {
+  width: 85%;
+  height: 85%;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5rem;
+  z-index: 1;
+}
+
+.cell {
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+
+}
+
+.cell img {
+  position: relative;
+  height: 75%;
+  width: 75%;
+  top: 6px;
+  left: 2px;
+}
+
+.rematch-button {
+  width: 15rem;
+  height: 4rem;
+  font-size: 2rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  border: none;
+  text-decoration: none;
+  background: linear-gradient(45deg, #cf6d6d 0%, #954141 100%);
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 15px;
+}
+
+.rematch-button:hover {
+  box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.1);
+}
+
+.rematch-button:active {
+  box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.1);
+  transform: scale(0.98);
+}
+
+.end-message {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 1rem;
+}
+
+@keyframes grow-horizontal {
   from {
-    transform: rotate(0deg);
+    width: 0;
   }
+
   to {
-    transform: rotate(360deg);
+    width: 25rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes grow-vertical {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 25rem;
   }
 }
 
-.card {
-  padding: 2em;
+.winning-line {
+  position: absolute;
+  width: 0;
+  height: 0;
+  background-color: rgb(124, 120, 120);
+  border-radius: 10px;
+  z-index: 10;
 }
 
-.read-the-docs {
-  color: #888;
+/* Rows */
+.row-0,
+.row-1,
+.row-2 {
+  height: 10px;
+  animation: grow-horizontal 0.5s ease-in-out forwards;
+  transform-origin: left;
+}
+
+.row-0 {
+  top: 20px;
+}
+
+.row-1 {
+  top: 50%;
+}
+
+.row-2 {
+  top: 83.33%;
+}
+
+/* Columns */
+.column-0,
+.column-1,
+.column-2 {
+  width: 5px;
+  animation: grow-vertical 0.5s ease-in-out forwards;
+  transform-origin: top;
+}
+
+.column-0 {
+  left: 16.67%;
+}
+
+.column-1 {
+  left: 50%;
+}
+
+.column-2 {
+  left: 83.33%;
+}
+
+/* Diagonals */
+.diagonal-0,
+.diagonal-2 {
+  width: 5px;
+  /* You can add diagonal animations here */
 }
